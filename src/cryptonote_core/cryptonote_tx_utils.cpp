@@ -167,7 +167,7 @@ namespace cryptonote
       tx.version = 1;
 
     //lock
-    if (hard_fork_version >= HF_VERSION_DYNAMIC_UNLOCK)
+    /*if (hard_fork_version >= HF_VERSION_DYNAMIC_UNLOCK)
     {
       uint64_t N = m_nettype == MAINNET ? 1337 : 5;
       crypto::hash blk_id = pb->get_block_id_by_height(height-N);
@@ -175,9 +175,9 @@ namespace cryptonote
       uint64_t blk_num = std::stol(hex_str,nullptr,16)*2;
       uint64_t unlock_window = blk_num + 288;
       tx.unlock_time = height + unlock_window;
-    } else {
+    } else {*/
       tx.unlock_time = height + 60;
-    }
+    //}
     tx.vin.push_back(in);
 
     tx.invalidate_hashes();
